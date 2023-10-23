@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Задание: Телефонная книга с использованием бинарного дерева</title>
+        <meta charset='utf-8'/>
+        <link rel="stylesheet" type="text/css" href="./Телефонная книга с использованием бинарного дерева.html_files/styles.css">
+        <script>
+            window.onload = function() {
+                if (document.querySelector("script[type=\"math/tex; mode=display\"]") !== null) {
+                    var mathjax = document.createElement("script");
+                    mathjax.src = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML";
+                    document.head.appendChild(mathjax);
+                }
+                if (document.getElementsByTagName("code").length !== 0) {
+                    var highlight = document.createElement("script");
+                    var highlightcss = document.createElement("link");
+                    highlight.src = "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js";
+                    highlightcss.rel = "stylesheet";
+                    highlightcss.href = "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css";
+                    highlight.onload = function() {hljs.initHighlighting();};
+                    document.head.appendChild(highlight);
+                    document.head.appendChild(highlightcss);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <article>
+            <h3 id="%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B5%D0%BB%D0%B5%D1%84%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F-%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0-%D1%81-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC-%D0%B1%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0">Задание: Телефонная книга с использованием бинарного дерева</h3>
+<h4 id="%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8">Описание задачи:</h4>
+<p>Ваша задача - разработать программу для хранения и поиска контактов в телефонной книге. Оптимальным решением для этой задачи будет использование бинарного дерева, которое позволяет эффективно добавлять, искать и отображать контакты.</p>
+<h4 id="%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BA-%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8">Требования к реализации:</h4>
+<ol>
+<li><p>Создайте два класса: <code>Contact</code> и <code>PhoneBook</code>.</p>
+</li><li><p>Класс <code>Contact</code> представляет отдельный контакт. У него должны быть следующие атрибуты:</p>
+<ul>
+<li><code>name</code> (str): Имя контакта.</li><li><code>phone_number</code> (str): Номер телефона контакта.</li><li><code>left</code> (Contact): Левый потомок (контакт с алфавитно меньшим именем).</li><li><code>right</code> (Contact): Правый потомок (контакт с алфавитно большим именем).</li></ul>
+</li><li><p>Класс <code>PhoneBook</code> представляет собой саму телефонную книгу. У него должны быть следующие методы:</p>
+<ul>
+<li><code>add_contact(name: str, phone_number: str) -&gt; None</code>: Добавляет новый контакт в телефонную книгу. Если контакт с таким именем уже существует, обновляет его номер телефона.</li><li><code>search_contact(name: str) -&gt; Contact</code>: Ищет контакт по имени и возвращает его объект. Если контакт не найден, возвращает <code>None</code>.</li><li><code>display_contacts() -&gt; None</code>: Выводит все контакты в телефонной книге в отсортированном порядке по имени.</li></ul>
+</li></ol>
+<h4 id="%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">Пример использования:</h4>
+<pre><code class="lang-python"># Создаем телефонную книгу
+phone_book = PhoneBook()
+
+# Добавляем контакты
+phone_book.add_contact(&quot;John Doe&quot;, &quot;+123456789&quot;)
+phone_book.add_contact(&quot;Jane Smith&quot;, &quot;+987654321&quot;)
+phone_book.add_contact(&quot;Alice Williams&quot;, &quot;+111111111&quot;)
+
+# Ищем контакт
+result = phone_book.search_contact(&quot;Jane Smith&quot;)
+if result:
+    print(f&quot;Contact found - Name: {result.name}, Phone: {result.phone_number}&quot;)
+else:
+    print(&quot;Contact not found&quot;)
+
+# Выводим все контакты
+phone_book.display_contacts()
+</code></pre>
+<h4 id="%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%87%D0%B0%D0%BD%D0%B8%D0%B5">Примечание:</h4>
+<ul>
+<li><p>Проверьте, что ваша реализация корректно обрабатывает ситуации, когда контакт с таким именем уже существует в телефонной книге.</p>
+</li><li><p>Убедитесь, что методы правильно обходят и выводят все контакты в телефонной книге в отсортированном порядке по имени.</p>
+</li><li><p>Добавьте подробные комментарии к вашему коду для облегчения его понимания другими разработчиками.</p>
+</li></ul>
+
+        </article>
+    </body>
+</html>
